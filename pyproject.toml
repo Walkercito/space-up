@@ -14,7 +14,9 @@ classifiers = [
 authors = [
     {name = "Walkercito", email = "walkercitoliver@gmail.com"}
 ]
-dependencies = []
+dependencies = [
+    "raylib>=5.5.0.2",
+]
 
 [dependency-groups]
 dev = [
@@ -36,7 +38,8 @@ src = ["src"]
 select = ["E", "F", "I", "N", "W", "B"]
 ignore = [
     "E203",    # whitespace before ':'
-    # W503 removed in newer ruff versions
+    "F403",    # star imports
+    "F405",    # undefined names from star imports
 ]
 
 [build-system]
