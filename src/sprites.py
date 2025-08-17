@@ -9,6 +9,8 @@ class Sprite:
         self.pos = pos
         self.speed = speed
         self.direction = direction
+        self.size = Vector2(self.texture.width, self.texture.height)
+        # print(self.size.x, self.size.y)
 
     def update(self, dt):
         self.draw()
@@ -35,7 +37,12 @@ class Player(Sprite):
         if is_key_pressed(KEY_SPACE):
             print("firee")
 
+    def constraint(self):
+        self.pos.x = max(0, min(self.pos.x, WIDTH - self.size.x))
+        self.pos.y = max(0, min(self.pos.y, HEIGHT - self.size.y))
+
     def update(self, dt):
         self.input()
         self.move(dt)
+        self.constraint()
         self.draw()

@@ -1,3 +1,5 @@
+from os.path import join
+
 from config import *
 from sprites import Player
 
